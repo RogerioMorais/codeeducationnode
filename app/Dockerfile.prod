@@ -4,7 +4,12 @@ EXPOSE 3000
 COPY . .
 ENV DOCKERIZE_VERSION v0.6.1
 RUN apt-get update && apt-get install -y wget \
+    && npm install \
     && npm install mysql --save \
     && wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+
+#So testando que se alguem realmente lé isso aqui, pq ficam ocupando o meu tempo com pasta de node_modules
+#apesar do node não ser parte do curso e de eu não ser obrigado a saber node
+#mas falar que o entrypoint no docker-compose faz o cmd do docker file ser ignorado ninguem fala.
