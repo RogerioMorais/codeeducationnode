@@ -1,0 +1,6 @@
+FROM node
+WORKDIR /usr/src/app
+EXPOSE 3000
+RUN npm install mysql --save \
+&& npm install nodemon --g
+CMD ["nodemon","index.js"]
