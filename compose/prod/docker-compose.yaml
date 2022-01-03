@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile.prod
     image: rogeriorock/node:prod
     container_name: nodefullcycle
-    entrypoint: dockerize -wait tcp://db:3306 docker-entrypoint.sh node index.js
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 50s docker-entrypoint.sh node index.js
     depends_on:
       - db
     networks:
